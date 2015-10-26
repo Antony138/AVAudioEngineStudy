@@ -65,12 +65,14 @@
             roll-off can also be controlled in order to simulate the effect of
             a tape delay. */
         
+        // 实现延时效果
         _delay = [[AVAudioUnitDelay alloc] init];
         
         /*  A reverb simulates the acoustic characteristics of a particular environment.
             Use the different presets to simulate a particular space and blend it in with
             the original signal using the wetDryMix parameter. */
         
+        // 实现混响效果
         _reverb = [[AVAudioUnitReverb alloc] init];
         
         _mixerOutputFilePlayer = [[AVAudioPlayerNode alloc] init];
@@ -79,6 +81,7 @@
         _mixerOutputFilePlayerIsPaused = NO;
         _isRecording = NO;
         
+        // AVAudioEngine实例的创建
         // create an instance of the engine and attach the nodes
         [self createEngineAndAttachNodes];
         
@@ -134,8 +137,10 @@
     /*  An AVAudioEngine contains a group of connected AVAudioNodes ("nodes"), each of which performs
 		an audio signal generation, processing, or input/output task.
 		
+        Nodes单独创建，并固定到engine上
 		Nodes are created separately and attached to the engine.
 
+        engine支持运行时动态链接、断开、删除nodes，但有如下小小限制:
 		The engine supports dynamic connection, disconnection and removal of nodes while running,
 		with only minor limitations:
 		- all dynamic reconnections must occur upstream of a mixer
@@ -149,6 +154,7 @@
 		externally to the engine, but are not usable until they are attached to the engine via
 		the attachNode method. */
     
+    // 要用attachNode:方法attached之后，才能使用
     [_engine attachNode:_marimbaPlayer];
     [_engine attachNode:_drumPlayer];
     [_engine attachNode:_delay];
