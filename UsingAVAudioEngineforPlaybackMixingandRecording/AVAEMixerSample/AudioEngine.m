@@ -23,6 +23,7 @@
 #pragma mark AudioEngine class extensions
 
 @interface AudioEngine() {
+    // creat若干需要用到的对象(学习这种星号对齐格式)
     AVAudioEngine       *_engine;
     AVAudioPlayerNode   *_marimbaPlayer;
     AVAudioPlayerNode   *_drumPlayer;
@@ -240,6 +241,7 @@
 
 - (void)startRecordingMixerOutput
 {
+    // 安置一个窃听器在主调音台输出总线(bus)，及写输出buffers到文件中
     // install a tap on the main mixer output bus and write output buffers to file
     
     /*  The method installTapOnBus:bufferSize:format:block: will create a "tap" to record/monitor/observe the output of the node.
