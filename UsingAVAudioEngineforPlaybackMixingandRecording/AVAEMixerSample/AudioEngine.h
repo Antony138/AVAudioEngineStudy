@@ -42,21 +42,26 @@
 @property (nonatomic, readonly) BOOL marimbaPlayerIsPlaying;
 @property (nonatomic, readonly) BOOL drumPlayerIsPlaying;
 
-// 音量
+// 音量(AVAudioPlayerNode的音量)
 @property (nonatomic) float marimbaPlayerVolume;    // 0.0 - 1.0
 @property (nonatomic) float drumPlayerVolume;       // 0.0 - 1.0
 
-// 这是什么?
+// 这是什么?立体声/Stereo(左右声道的设置)
+// pan并不是AVAudioPlayerNode的属性，而是AVAudioMixing协议的属性(AVAudioPlayerNode遵守了AVAudioMixing协议)
 @property (nonatomic) float marimbaPlayerPan;       // -1.0 - 1.0
 @property (nonatomic) float drumPlayerPan;          // -1.0 - 1.0
 
-// 音效?
+// 延时音效(AVAudioUnitDelay)的值
+// 一个是wetDryMix属性的值；另一个是AVAudioUnitEffect类的bypass值
 @property (nonatomic) float delayWetDryMix;         // 0.0 - 1.0
 @property (nonatomic) BOOL bypassDelay;
 
+// 混响音效(AVAudioUnitReverb)的值
+// 一个是wetDryMix属性的值；另一个是AVAudioUnitEffect类的bypass值
 @property (nonatomic) float reverbWetDryMix;        // 0.0 - 1.0
 @property (nonatomic) BOOL bypassReverb;
 
+// 混音(mix)后的输出音量，这个demo指的是_engine.mainMixerNode.outputVolume的音量
 @property (nonatomic) float outputVolume;           // 0.0 - 1.0
 
 @property (weak) id<AudioEngineDelegate> delegate;

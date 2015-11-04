@@ -34,6 +34,7 @@
     
     // for the node tap
     NSURL               *_mixerOutputFileURL;
+    // 混合上面两个player nodes后一起播放的node？
     AVAudioPlayerNode   *_mixerOutputFilePlayer;
     BOOL                _mixerOutputFilePlayerIsPaused;
     BOOL                _isRecording;
@@ -192,13 +193,15 @@
             match that of the source node's output bus. */
     
     // marimba player -> delay -> main mixer
+    // Player node传递到Effect node，再传递到Mixer node
+    // 音频数据，其实就是一个node到一个node的“传递”？
     [_engine connect: _marimbaPlayer to:_delay format:_marimbaLoopBuffer.format];
     [_engine connect:_delay to:mainMixer format:_marimbaLoopBuffer.format];
-    
+
     // drum player -> reverb -> main mixer
     [_engine connect:_drumPlayer to:_reverb format:_drumLoopBuffer.format];
     [_engine connect:_reverb to:mainMixer format:_drumLoopBuffer.format];
-    
+
     // node tap player
     [_engine connect:_mixerOutputFilePlayer to:mainMixer format:[mainMixer outputFormatForBus:0]];
 }
@@ -247,7 +250,8 @@
 
 - (void)startRecordingMixerOutput
 {
-    // 安置一个窃听器在主调音台输出总线(bus)，及写输出buffers到文件中
+    // 安装一个窃听器在主调音台输出总线(bus)，及写输出buffers到文件中
+    // 涉及到"Node Tap"知识,"Node Tap"是用于捕获音频的(1、从麦克风；2、从音频app的实时声音；3、从output mix)，这里的例子应该就属于第三种：经过音效处理后，通过Node Tap从output mix中捕获/记录声音
     // install a tap on the main mixer output bus and write output buffers to file
     
     /*  The method installTapOnBus:bufferSize:format:block: will create a "tap" to record/monitor/observe the output of the node.
@@ -277,6 +281,7 @@
     NSAssert(mixerOutputFile != nil, @"mixerOutputFile is nil, %@", [error localizedDescription]);
     
     [self startEngine];
+    // install一个Node Tap，用于捕获音频(从output mix中)
     [mainMixer installTapOnBus:0 bufferSize:4096 format:[mainMixer outputFormatForBus:0] block:^(AVAudioPCMBuffer *buffer, AVAudioTime *when) {
         NSError *error;
         
