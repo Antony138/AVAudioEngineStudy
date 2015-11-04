@@ -65,14 +65,14 @@
             roll-off can also be controlled in order to simulate the effect of
             a tape delay. */
         
-        // 实现延时效果
+        // 延时效果
         _delay = [[AVAudioUnitDelay alloc] init];
         
         /*  A reverb simulates the acoustic characteristics of a particular environment.
             Use the different presets to simulate a particular space and blend it in with
             the original signal using the wetDryMix parameter. */
         
-        // 实现混响效果
+        // 混响效果
         _reverb = [[AVAudioUnitReverb alloc] init];
         
         _mixerOutputFilePlayer = [[AVAudioPlayerNode alloc] init];
@@ -88,7 +88,7 @@
         NSError *error;
         
         // load marimba loop
-        NSURL *marimbaLoopURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"marimbaLoop" ofType:@"caf"]];
+        NSURL *marimbaLoopURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"遇见" ofType:@"mp3"]];
         AVAudioFile *marimbaLoopFile = [[AVAudioFile alloc] initForReading:marimbaLoopURL error:&error];
         _marimbaLoopBuffer = [[AVAudioPCMBuffer alloc] initWithPCMFormat:[marimbaLoopFile processingFormat] frameCapacity:(AVAudioFrameCount)[marimbaLoopFile length]];
         NSAssert([marimbaLoopFile readIntoBuffer:_marimbaLoopBuffer error:&error], @"couldn't read marimbaLoopFile into buffer, %@", [error localizedDescription]);
