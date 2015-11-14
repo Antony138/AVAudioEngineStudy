@@ -5,7 +5,7 @@
     Abstract:
     Application Delegate
 */
-
+// 测试删除已经push的更改
 @import UIKit;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
