@@ -25,6 +25,8 @@
 		8271354D192EA4D60056B240 /* drumLoop.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8271354B192EA4D60056B240 /* drumLoop.caf */; };
 		8271354E192EA4D60056B240 /* marimbaLoop.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8271354C192EA4D60056B240 /* marimbaLoop.caf */; };
 		CF1C648D1BE07CC50005AC87 /* 遇见.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF1C648C1BE07CC50005AC87 /* 遇见.mp3 */; };
+		CF46E9AF1C003792002111CE /* leftRightTest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF46E9AE1C003792002111CE /* leftRightTest.mp3 */; };
+		CF9B58C91C06B06C006D6B41 /* leftRightTest2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF9B58C81C06B06C006D6B41 /* leftRightTest2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		8271354B192EA4D60056B240 /* drumLoop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = drumLoop.caf; sourceTree = "<group>"; };
 		8271354C192EA4D60056B240 /* marimbaLoop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = marimbaLoop.caf; sourceTree = "<group>"; };
 		CF1C648C1BE07CC50005AC87 /* 遇见.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "遇见.mp3"; sourceTree = "<group>"; };
+		CF46E9AE1C003792002111CE /* leftRightTest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = leftRightTest.mp3; sourceTree = "<group>"; };
+		CF9B58C81C06B06C006D6B41 /* leftRightTest2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = leftRightTest2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		4CEA32B11912EDDE00ACCD65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CF46E9AE1C003792002111CE /* leftRightTest.mp3 */,
+				CF9B58C81C06B06C006D6B41 /* leftRightTest2.mp3 */,
 				8271354B192EA4D60056B240 /* drumLoop.caf */,
 				CF1C648C1BE07CC50005AC87 /* 遇见.mp3 */,
 				8271354C192EA4D60056B240 /* marimbaLoop.caf */,
@@ -188,8 +194,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF46E9AF1C003792002111CE /* leftRightTest.mp3 in Resources */,
 				4CEA32C41912EDDE00ACCD65 /* Images.xcassets in Resources */,
 				4CEA32BF1912EDDE00ACCD65 /* Main_iPhone.storyboard in Resources */,
+				CF9B58C91C06B06C006D6B41 /* leftRightTest2.mp3 in Resources */,
 				8271354D192EA4D60056B240 /* drumLoop.caf in Resources */,
 				8271354E192EA4D60056B240 /* marimbaLoop.caf in Resources */,
 				CF1C648D1BE07CC50005AC87 /* 遇见.mp3 in Resources */,
